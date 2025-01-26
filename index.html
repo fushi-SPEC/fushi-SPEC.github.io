@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>视频背景示例</title>
+    <title>视频背景测试</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
         .video-background {
             position: fixed;
             top: 0;
@@ -13,59 +18,23 @@
             min-height: 100%;
             z-index: -1;
             object-fit: cover;
-            opacity: 0.9;
         }
-
         .content {
             position: relative;
             z-index: 1;
             color: white;
-            padding: 20px;
             text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .video-background {
-                display: none;
-            }
-            body {
-                background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
-                            url('mobile-bg.jpg') center/cover;
-            }
+            padding: 20px;
         }
     </style>
 </head>
 <body>
-    <video class="video-background" 
-           autoplay 
-           muted 
-           loop 
-           playsinline
-           preload="auto"
-           poster="fallback.jpg"
-           onerror="showFallback()">
-        <source src="https://cdn.pixabay.com/video/2023/11/27/185696_tiny.mp4" type="video/mp4">
-        <source src="https://cdn.pixabay.com/video/2023/11/27/185696_tiny.webm" type="video/webm">
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="https://github.com/fushi-SPEC/video/raw/main/background.mp4" type="video/mp4">
     </video>
-
     <div class="content">
         <h1>欢迎来到我的网站</h1>
         <p>这是一个带有视频背景的示例页面。</p>
     </div>
-
-    <script>
-        // 强制播放视频
-        document.addEventListener('click', () => {
-            document.querySelector('video').play().catch(() => {
-                document.querySelector('video').muted = true;
-                document.querySelector('video').play();
-            });
-        }, { once: true });
-
-        // 加载失败时显示备用背景
-        function showFallback() {
-            document.body.style.background = 'url(fallback.jpg) center/cover';
-        }
-    </script>
 </body>
 </html>

@@ -3,58 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="符识官方站点 - 安全访问平台">
-    <title>符识网站测试系统</title>
+    <title>视频背景示例</title>
     <style>
-        :root {
-            --primary-color: #1a1a1a;
-            --overlay-color: rgba(0, 0, 0, 0.6);
-            --text-light: #ffffff;
-        }
-
-        /* 视频容器样式 */
         .video-background {
             position: fixed;
-            right: 0;
-            bottom: 0;
+            top: 0;
+            left: 0;
             min-width: 100%;
             min-height: 100%;
             z-index: -1;
-            filter: brightness(0.7);
             object-fit: cover;
+            opacity: 0.9;
         }
 
-        /* 内容叠加层 */
-        .content-overlay {
+        .content {
             position: relative;
             z-index: 1;
-            background: var(--overlay-color);
-            min-height: 100vh;
-            color: var(--text-light);
-        }
-
-        /* 原有样式优化 */
-        header {
-            padding: 4rem 2rem;
+            color: white;
+            padding: 20px;
             text-align: center;
-            backdrop-filter: blur(3px);
         }
 
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        section {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(5px);
-        }
-
-        /* 移动端适配 */
         @media (max-width: 768px) {
             .video-background {
                 display: none;
@@ -63,80 +32,40 @@
                 background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
                             url('mobile-bg.jpg') center/cover;
             }
-            header {
-                padding: 2rem 1rem;
-            }
-        }
-
-        /* 其他优化样式 */
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        h2 {
-            color: #4CAF50;
-            margin-bottom: 1.5rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
 <body>
-    <!-- 视频背景 -->
     <video class="video-background" 
            autoplay 
            muted 
            loop 
            playsinline
-           preload="metadata"
-           poster="video-poster.jpg">
-        <source src="https://cdn.pixabay.com/video/2018/03/03/14662-258508165_tiny.mp4" type="video/mp4">
-        <source src="assets/videos/background.webm" type="video/webm">
+           preload="auto"
+           poster="fallback.jpg"
+           onerror="showFallback()">
+        <source src="https://cdn.pixabay.com/video/2023/11/27/185696_tiny.mp4" type="video/mp4">
+        <source src="https://cdn.pixabay.com/video/2023/11/27/185696_tiny.webm" type="video/webm">
     </video>
 
-    <!-- 内容容器 -->
-    <div class="content-overlay">
-        <header>
-            <h1>符识网站测试系统</h1>
-            <p>授权访问平台 - 版本 2.1.0</p>
-        </header>
-
-        <main>
-            <section>
-                <h2>系统特性</h2>
-                <p>先进的身份验证机制与加密通信协议...</p>
-                <div class="security-features">
-                    <ul>
-                        <li>🔐 AES-256 端到端加密</li>
-                        <li>🛡️ 实时入侵检测系统</li>
-                        <li>🌐 分布式节点网络</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="access-protocol">
-                <h2>访问协议</h2>
-                <div class="protocol-steps">
-                    <p>访问步骤：</p>
-                    <ol>
-                        <li>获取授权令牌</li>
-                        <li>通过双重验证</li>
-                        <li>建立安全通道</li>
-                    </ol>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>© 2023 符识安全系统 | 安全认证等级：TLSS 3.0</p>
-            <p>视频背景来源：<a href="https://pixabay.com/videos/id-14662/" target="_blank" style="color: #4CAF50;">Pixabay</a></p>
-        </footer>
+    <div class="content">
+        <h1>欢迎来到我的网站</h1>
+        <p>这是一个带有视频背景的示例页面。</p>
     </div>
+
+    <script>
+        // 强制播放视频
+        document.addEventListener('click', () => {
+            document.querySelector('video').play().catch(() => {
+                document.querySelector('video').muted = true;
+                document.querySelector('video').play();
+            });
+        }, { once: true });
+
+        // 加载失败时显示备用背景
+        function showFallback() {
+            document.body.style.background = 'url(fallback.jpg) center/cover';
+        }
+    </script>
 </body>
 </html>

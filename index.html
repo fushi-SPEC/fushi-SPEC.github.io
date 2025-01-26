@@ -3,55 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>符识</title>
+    <meta name="description" content="符识官方站点 - 仅供授权访问">
+    <title>符识 - 授权访问平台</title>
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background: #f8f9fa;
+            line-height: 1.6;
         }
+
         header {
-            background-color: #333;
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            margin: 2rem 0;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        footer {
+            background: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 10px;
-        
-        main {
-            margin: 15px;
-            padding: 20px;
-            background-color: blue;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
-<body>      <img border="0" src="53f676887f99242140e2754dc7a7c8d4.jpg" alt="Pulpit rock" width="1920" height="1080">
+<body>
     <header>
-        <h1>仅供符识与被符识邀请的人访问</h1>
+        <h1>符识认证访问系统</h1>
+        <p>仅限授权用户访问</p>
     </header>
-    <main>
-        <section>
-            <h2>关于我们</h2>
-            <p>
-            一个图像:
-            <video src=网页test.mp4 alt="Smiley face" width="32" height="32"></p>
-            <h2>Norwegian Mountain Trip</h2>
-            <img border="0" src="53f676887f99242140e2754dc7a7c8d4.jpg" alt="Pulpit rock" width="304" height="228">
 
-            <p>搜索网址：https://fushi-spec.github.io/fushi-SPEC/看看</p>
-            <p>学习中。</p>
-        </section>
+    <main>
+        <img class="hero-image" 
+             src="assets/images/hero.jpg" 
+             alt="符识系统示意图"
+             loading="lazy">
+
         <section>
-            <h2>联系我们</h2>
-            <p>开发者联系方式：</p>
-            <ul>
-                <li>电话：18S6937087S</li>
-                <li>邮箱：zxc17674616723@163.com</li>
-            </ul>
+            <h2>核心功能</h2>
+            <div class="video-container">
+                <video controls muted poster="assets/images/video-poster.jpg">
+                    <source src="assets/media/demo.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放
+                </video>
+            </div>
+            <p>探索我们的创新解决方案...</p>
+        </section>
+
+        <section>
+            <h2>安全联系方式</h2>
+            <div class="contact-protocol">
+                <p>认证用户请联系系统管理员获取安全通信通道</p>
+                <ul class="encrypted-info">
+                    <li>🔒 安全通信协议：PGP-2048</li>
+                    <li>📧 加密邮箱：<code>fushi@secure.example</code></li>
+                </ul>
+            </div>
         </section>
     </main>
+
     <footer>
-        <p>版权所有 ©  符识</p>
+        <p>© 2023 符识安全系统 - 所有操作均被记录</p>
+        <p>版本 2.1.0 | 安全认证：TLS 1.3</p>
     </footer>
 </body>
 </html>
